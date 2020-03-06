@@ -109,7 +109,7 @@ if(add==1)
       <p style="color:red;"><%=msg%> </p>
       <br/><br/>
       <p style="color:green;"><%=msgs%></p>
-      <p style="text-align: center;font-size: large;color:black;"><a href="#">forgot Password?</a></p>
+      <p style="text-align: center;font-size: large;color:black;"><a href="/forgotpassword">forgot Password?</a></p>
     
       </div>
     </div>

@@ -86,7 +86,7 @@ public class AdminController {
 	}
 
 	@RequestMapping("/save")
-	public String edited(@ModelAttribute("editmed") MedicineBean mb, BindingResult br,HttpSession session) {
+	public String edited(@Valid @ModelAttribute("editmed") MedicineBean mb, BindingResult br,HttpSession session) {
 		if(session.getAttribute("id")==null)
 			return "choose";
 		
@@ -138,7 +138,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/update")
-	public String updated(@ModelAttribute("update")MedicineBean medicineBean,BindingResult br,HttpSession session,Model model)
+	public String updated(@Valid @ModelAttribute("update")MedicineBean medicineBean,BindingResult br,HttpSession session,Model model)
 	{
 		if(session.getAttribute("id")==null)
 			return "choose";
@@ -152,6 +152,7 @@ public class AdminController {
 	
 		if(br.hasErrors())
 		{
+			System.out.println("error..................");
 			model.addAttribute("update",medicineBean);
 			return "updateMedicine";
 		}
@@ -160,7 +161,7 @@ public class AdminController {
 		//medicineBean.setSales(med.getSales());
 		//medicineBean.setMid(med.get);
 		
-		medicineDao.save(medicineBean);
+			medicineDao.save(medicineBean);
 		
 		session.setAttribute("addm", 3);
 		return page;

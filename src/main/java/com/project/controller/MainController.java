@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.model.AdminBean;
 import com.project.model.LoginBean;
+import com.project.model.PasswordRecoveryFunction;
 import com.project.model.RecoveryBean;
 
 import com.project.service.AdminDao;
@@ -32,6 +33,10 @@ public class MainController {
 	AdminFunction adminFunction;
 	@Autowired
 	RecoveryDao recoveryDao;
+	
+	@Autowired
+	PasswordRecoveryFunction prf;
+	
 	
 	@RequestMapping("/")
 	public String chooseRole(HttpSession session) {
@@ -170,9 +175,9 @@ public class MainController {
 		if (bindingResult.hasErrors()) {
 			return "recovery";
 		}
-		String role = (String) session.getAttribute("role");
+		AdminBean role = (AdminBean) session.getAttribute("sign");
 		adminDao.save((AdminBean) session.getAttribute("sign"));
-		recoveryBean.setDesgination(role);
+		recoveryBean.setDesgination(role.getEmailId());
 		recoveryDao.save(recoveryBean);
 		session.setAttribute("sign", null);
 		model.addAttribute("err", 0);
@@ -181,5 +186,33 @@ public class MainController {
 
 		return "login";
 	}
+	
+	@RequestMapping("/forgotpassword")
+	public String forgotpassword()
+	{
+		return "updatepassword";
+	}
+	
+	
+	@RequestMapping("/newpassword")
+	public String newpassword(String id,String question,String answer)
+	{
+		
+		System.out.println(id+" "+question+" "+answer);
+		
+		RecoveryBean rb = prf.update(id, question, answer);
+		
+		if(rb==null)
+		{
+			System.out.println("WRONG");
+		}
+		
+		else
+			System.out.println(rb.getDesgination());
+		
+		
+		return "";
+	}
+	
 
 }
