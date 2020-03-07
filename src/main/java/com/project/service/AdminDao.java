@@ -1,8 +1,11 @@
 package com.project.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.model.AdminBean;
 
@@ -15,5 +18,10 @@ public interface AdminDao extends JpaRepository<AdminBean, String>{
 
 	@Query("select s from AdminBean s where s.emailId=:email")
 	public AdminBean findAdmin(String email);
+	
+	 @Transactional
+	 @Modifying(clearAutomatically = true)
+	 @Query("UPDATE AdminBean a SET a.password = :password WHERE a.emailId = :emailId")
+	 int updatepassword(@Param("emailId") String emailId, @Param("password") String password);
 
 }

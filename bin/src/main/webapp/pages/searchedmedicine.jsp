@@ -1,12 +1,9 @@
-<%@page import="com.project.model.AdminBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,54 +33,48 @@
 		<a class="navbar-brand text-light" href="/adhome" >GetMed</a>
 		<div class="collapse navbar-collapse" id="navigation-bar">
 			<ul class="navbar-nav ml-auto " >
-				<li class="nav-item "><a class="nav-link text-light" href="/adminhomepage">HOME</a></li>
+				<li class="nav-item "><a class="nav-link text-light" href="/adhome">HOME</a></li>
 				<li class="nav-item"><a class="nav-link text-light" href="#work">CONTACT</a></li>
 				<li class="nav-item"><a class="nav-link text-light" href="#why">HELP</a></li>
-           <li class="nav-item"><a class="nav-link text-light" href="/logout">LOGOUT</a></li>
-			
                 </ul>
 		</div>
 		</nav>
-<br/><br/><br/>
-<br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
 
 <h3 style="text-align: center;">Medicine Information</h3>
 <br/><br/>
 
 <table class="table table-hover" style="padding-top:5em;">
-  
   <thead>
     <tr>
       <th scope="col">Medicine Name</th>
       <th scope="col">Brand</th>
       <th scope="col">Price</th>
-      <th scope="col">InStock</th>
+      <th scope="col">Stock</th>
      	<th scope="col">Disease</th>
      	<th scope="col">City</th>
     <th scope="col"> Expiry Date</th>
-    <th scope="col">Edit</th>
+    <th scope="col">Buy</th>
+    
     
     </tr>
   </thead>
   <tbody>
-    <c:forEach items="${medicines}" var="med">
+    <c:forEach items="${details}" var="med">
     <tr>
     
-      <th ><c:out value="${med.name}"/></th>
+      <td><c:out value="${med.name}"/></td>
       <td><c:out value="${med.brand}"/></td>
       <td><c:out value="${med.price}"/></td>
       <td><c:out value="${med.stock}"/></td>
       <td><c:out value="${med.disease}"/></td>
       <td><c:out value="${med.city}"/></td>
-      <td><fmt:formatDate value="${med.expiryDate}" pattern="dd-MM-yyyy"/>
-  </td>
-      <td><a href="editMedicine?mid=${med.mid}" class="btn btn-outline-secondary btn-sm">Edit</a></td>
+      <td><c:out value="${med.expiryDate}"/></td>
+      <td><a href="#">BUY</a></td>
     </tr>
   </c:forEach>
      </tbody>
 </table>
 
-<p style="text-align: center;"><a href="/addm" style="text-align: center;" class="btn btn-outline-dark btn-lg">Add Medicine</a>
-  </p>
 </body>
 </html>

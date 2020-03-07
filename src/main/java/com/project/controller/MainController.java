@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.model.AdminBean;
 import com.project.model.LoginBean;
@@ -36,6 +38,8 @@ public class MainController {
 	
 	@Autowired
 	PasswordRecoveryFunction prf;
+	
+	
 	
 	
 	@RequestMapping("/")
@@ -177,6 +181,7 @@ public class MainController {
 		}
 		AdminBean role = (AdminBean) session.getAttribute("sign");
 		adminDao.save((AdminBean) session.getAttribute("sign"));
+		System.out.println(role.getEmailId());
 		recoveryBean.setDesgination(role.getEmailId());
 		recoveryDao.save(recoveryBean);
 		session.setAttribute("sign", null);
@@ -190,29 +195,82 @@ public class MainController {
 	@RequestMapping("/forgotpassword")
 	public String forgotpassword()
 	{
+		System.out.println("asddfg");
 		return "updatepassword";
 	}
 	
 	
 	@RequestMapping("/newpassword")
-	public String newpassword(String id,String question,String answer)
+	public String newpassword(String id,String question,String answer,Model mv,HttpSession session)
 	{
 		
 		System.out.println(id+" "+question+" "+answer);
 		
-		RecoveryBean rb = prf.update(id, question, answer);
+		RecoveryBean recoveryBean = prf.update(id, question, answer);
 		
-		if(rb==null)
+	
+		
+		if(recoveryBean==null)
 		{
 			System.out.println("WRONG");
+			mv.addAttribute("result","wrong" );
+			return "updatepassword";
 		}
 		
 		else
-			System.out.println(rb.getDesgination());
+		{
+			session.setAttribute("username", recoveryBean.getDesgination());
+			
+			System.out.println(recoveryBean.getDesgination());
+			
+			return "passwordchanged";
+		}
 		
 		
-		return "";
 	}
+	
+	@RequestMapping("/passwordchanged")
+	public String passwordchanged(String pass,String repass,Model m,HttpSession session,Model mo)
+	{
+		
+		System.out.println("qwertyuiop:"+pass+"  "+repass);
+		
+		if(!(pass.equals(repass)))
+		{
+			mo.addAttribute("result", "wrong");
+			return "passwordchanged";
+		}
+		
+		else
+		{
+			String s=(String)session.getAttribute("username");
+			System.out.println(s);
+			
+			/*
+			 * s=adminFunction.encryption(s);
+			 */
+			
+			System.out.println(s+"@@@@@@@@@");
+			
+			
+			System.out.println(adminFunction.encryption(pass));
+			
+			
+			System.out.println("@@@@@@@@@@@"+"qwertyuiop");
+			
+			System.out.println(s);
+			
+			
+			prf.updatepassword(adminFunction.encryption(pass),s );
+			
+			mo.addAttribute("updatepass", "yes");
+			return "choose";
+			
+		}
+		
+		
+	}
+	
 	
 
 }

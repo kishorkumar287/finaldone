@@ -51,39 +51,40 @@
 
 		<div class="tile-header">
 			<h2
-				style="color: teal; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">Fill
-				Out</h2>
+				style="color: teal; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">Update Stock</h2>
+		<h2
+				style="color: teal; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">${medicines.name}</h2>
+		
 		</div>
 
 		<div class="tile-body">
-			<f:form id="form" action="/addmedicine" method="post"
-				modelAttribute="addmed">
+			<f:form id="form" action="update" method="post"
+				modelAttribute="update">
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="name" type="text" autofocus="true" name="name"
-						required="true" /> <span class="label">Medicine Name</span>
-					<div class="underline"></div>
+					<f:input path="name" type="hidden" autofocus="true" name="name"
+						required="true" /> 
+					
 				</label>
 				<p style="color: red;">
 					<f:errors path="name"></f:errors>
 				</p>
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="brand" type="text" name="brand" required="true" />
-					<span class="label">Brand Name</span>
-					<div class="underline"></div>
-				</label>
+					<f:input path="brand" type="hidden" name="brand" required="true" />
+					
+									</label>
 				<p style="color: red;">
 					<f:errors path="brand"></f:errors>
 				</p>
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="price" type="number" name="price" step="0.1"
-						required="true" /> <span class="label">Price</span>
-					<div class="underline"></div>
+					<f:input path="price" type="hidden" name="price" step="0.1"
+						required="true" /> 
+					
 				</label>
 				<p style="color: red;">
 					<f:errors path="price"></f:errors>
 				</p>
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input type="number" path="stock" name="stock" required="true" />
+					<f:input type="number" min="0" path="stock" name="stock" required="true" />
 					<span class="label">Stock</span>
 					<div class="underline"></div>
 				</label>
@@ -91,39 +92,20 @@
 					<f:errors path="name"></f:errors>
 				</p>
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input type="text" name="disease" path="disease" required="true" />
-					<span class="label">disease</span>
-					<div class="underline"></div>
+					<f:input type="hidden" name="disease" path="disease" required="true" />
+					
+					
 				</label>
 
 				<p style="color: red;">
 					<f:errors path="disease"></f:errors>
 				</p>
 
-				<label class="form-input"> <i class="material-icons" style="padding-right: 10em;"
-				>person</i>
-&nbsp;&nbsp;
-					<div class="col-md-5 mb-5" style="padding-left: 3em;">
-						
-						<f:select
-							class="custom-select" name="type" path="type" required="true">
-						<f:option value="normal">Normal</f:option>
-							<f:option value="vaccine">Vaccine</f:option>
-						<f:option value="capsule">capsule</f:option>
-						<f:option value="syrup">syrup</f:option>
-						</f:select>
-						</div> 
-					
-					
-				</label>
-
-
 
 
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="city" type="text" name="city" required="true" /> <span
-					class="label">City</span>
-					<div class="underline"></div>
+					<f:input path="city" type="hidden" name="city" required="true" /> 
+					
 				</label>
 				<p style="color: red;">
 					<f:errors path="city"></f:errors>
@@ -143,11 +125,11 @@
 
 					<button id="submit" role="button" type="submit"
 						class="btn btn-irenic float-left btn-lg" tabindex="0">
-						<span>Add Medicine</span>
+						<span>Update</span>
 					</button>
-					<input id="submit" value="clear" role="button" type="reset"
+					<a role="button" href="/viewupdate"
 						class="btn btn-irenic float-right btn-lg" tabindex="0">
-
+				Cancel	</a>
 
 					<div class="login-pending">
 						<div class=spinner>

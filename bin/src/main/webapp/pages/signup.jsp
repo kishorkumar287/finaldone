@@ -51,7 +51,7 @@
 
         <div class="tile-header">
             <h2
-                style="color:teal; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">
+                style="color:black; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">
                 SIGN UP</h2>
         </div>
 
@@ -133,7 +133,7 @@
             </f:form>
             <br /><br />
             <%String role=(String)session.getAttribute("role"); %>
-            <p style="text-align: center;font-size: large;">Already Have Account? <a href=<%="/log/"+role%>>Login</a></p>
+            <p style="text-align: center;font-size: large;">Already Have Account? <a href=<%="/log?role="+role%>>Login</a></p>
 
         </div>
     </div>

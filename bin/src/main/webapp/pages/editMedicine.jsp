@@ -56,8 +56,8 @@
 		</div>
 
 		<div class="tile-body">
-			<f:form id="form" action="/addmedicine" method="post"
-				modelAttribute="addmed">
+			<f:form id="form" action="/save" method="post"
+				modelAttribute="editmed">
 				<label class="form-input"> <i class="material-icons">person</i>
 					<f:input path="name" type="text" autofocus="true" name="name"
 						required="true" /> <span class="label">Medicine Name</span>
@@ -143,11 +143,11 @@
 
 					<button id="submit" role="button" type="submit"
 						class="btn btn-irenic float-left btn-lg" tabindex="0">
-						<span>Add Medicine</span>
+						<span>Save</span>
 					</button>
-					<input id="submit" value="clear" role="button" type="reset"
+					<a href="/adhome"  role="button" type="reset"
 						class="btn btn-irenic float-right btn-lg" tabindex="0">
-
+	Cancel	</a>
 
 					<div class="login-pending">
 						<div class=spinner>

@@ -3,6 +3,7 @@ package com.project.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.service.AdminDao;
 import com.project.service.RecoveryDao;
 
 @Service
@@ -10,6 +11,9 @@ public class PasswordRecoveryFunction {
 	
 	@Autowired
 	RecoveryDao dao;
+	
+	@Autowired
+	AdminDao adao;
 	
 	public RecoveryBean update(String id,String question,String answer)
 	{
@@ -31,5 +35,15 @@ public class PasswordRecoveryFunction {
 		
 		return rb;
 	}
+	
+	public int updatepassword(String password,String username)
+	{
+		
+		int a=adao.updatepassword(username,password);
+		
+		return a;
+	}
+	
+	
 
 }

@@ -27,9 +27,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
- user home
+<body> 
+<nav class="navbar navbar-expand-lg fixed-top bg-dark">
+       
+		<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navigation-bar" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon text-light">&#9776;</span>
+		</button>
+		<img src="logo2.png" alt="logo" style="height:5%;width: 5%"/>
+		<a class="navbar-brand text-light" href="/adhome" >GetMed</a>
+		<div class="collapse navbar-collapse" id="navigation-bar">
+			<ul class="navbar-nav ml-auto " >
+				<li class="nav-item "><a class="nav-link text-light" href="/adhome">HOME</a></li>
+				<li class="nav-item"><a class="nav-link text-light" href="#work">CONTACT</a></li>
+				<li class="nav-item"><a class="nav-link text-light" href="#why">HELP</a></li>
+                </ul>
+		</div>
+		</nav>
+<br/><br/><br/><br/><br/><br/>
+
+<h3 style="text-align: center;">USER HOME PAGE</h3>
+<br/><br/>
+			<h3 style="text-align: center;"><a href="viewmedicine">ViewMedicine</a></h3>
+			<h3 style="text-align: center;"><a href="ordermedicine">Order</a></h3>
 
     </body>
 

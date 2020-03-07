@@ -56,47 +56,31 @@
 		<div class="tile-header">
 			<h2
 				style="color: teal; opacity: .75; font-size: 2rem; display: flex; justify-content: center; align-items: center; height: 100%;">
-				Recovery Question</h2>
+				Update Password</h2>
 		</div>
 
 		<div class="tile-body">
-			<form id="form" action="newpassword" method="post">
+			<form id="form" action="passwordchanged">
 				
 				
 				<label class="form-input"> <i class="material-icons">person</i>
-					<input  type="text" autofocus="true" name="id"
-						required="true" /> <span class="label">What is your
-						Email Id?</span>
+					<input  type="password"  pattern=".{8,}"  autofocus="true" name="pass"
+						required="true" /> <span class="label">Enter your new password of minimum length 8</span>
 					<div class="underline"></div>
 				</label>
 				
 				
-				<label class="form-input"> <i class="material-icons">person</i>
-				<br>&nbsp &nbsp &nbsp &nbsp
-					<select id="question" name="question">
-							    <option value="q1">What is your Nick name?</option>
-							    <option value="q2">What is your Favourite colour?</option>
-							    <option value="q3">Who is your Favourite Hero?</option>
-							  </select> <!-- <span class="label">Select Any one of the well known question</span> -->
-					<div class="underline"></div>
-				</label>
-				
 				
 				<label class="form-input"> <i class="material-icons">person</i>
-					<input  type="text" autofocus="true" name="answer"
-						required="true" /> <span class="label">Enter your answer</span>
+					<input  type="password" min="8" autofocus="true" name="repass"
+						required="true" /> <span class="label">Re-Enter your new password</span>
 					<div class="underline"></div>
 				</label>
 				<div style="text-align: center; color: red;">
 				<c:if test="${result == 'wrong' }">
-				ENTER CORRECT USERNAME AND PASSWORD
+				THERE IS A MISMATCH IN YOUR NEW PASSWORD SO PLEASE ENTER CORRECTLY		
 				</c:if>
 				</div>
-				<br />
-				<br />
-				
-				
-				
 				
 				<button role="button" type="submit"
 					class="btn btn-irenic float-left" tabindex="0">
