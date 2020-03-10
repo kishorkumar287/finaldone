@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.model.AdminBean;
+import com.project.model.HelpBean;
 import com.project.model.LoginBean;
 import com.project.model.PasswordRecoveryFunction;
 import com.project.model.RecoveryBean;
 
 import com.project.service.AdminDao;
 import com.project.service.AdminFunction;
+import com.project.service.HelpDao;
 import com.project.service.RecoveryDao;
 import com.project.service.Validation;
 
@@ -39,7 +41,8 @@ public class MainController {
 	@Autowired
 	PasswordRecoveryFunction prf;
 	
-	
+	@Autowired
+	HelpDao helpDao;
 	
 	
 	@RequestMapping("/")
@@ -270,6 +273,57 @@ public class MainController {
 		
 		
 	}
+	
+	
+	@RequestMapping("/help")
+	public String help(@ModelAttribute("help") HelpBean help) {
+		System.out.println("helpper");
+		
+		return "help";
+	}
+	
+	@RequestMapping("/helpper")
+	public String helpper(@ModelAttribute("help") HelpBean help,Model m) {
+		System.out.println("success");
+		
+		helpDao.save(help);
+		System.out.println("success2");
+		m.addAttribute("help","success");
+		
+		return "choose";
+	}
+	
+	
+	@RequestMapping("/forgotusername")
+	public String forgotusername()
+	{
+		System.out.println("asddfg");
+		return "showuserid";
+	}
+	
+	@RequestMapping("/showuserid")
+	public String showuserid(String answer1,String answer2,String answer3,Model m)
+	{
+		RecoveryBean rb = recoveryDao.Validateusername(answer1, answer2, answer3);
+		
+		if(rb==null)
+		{
+			m.addAttribute("result", "wrong");
+			return "showuserid";
+		}
+		else
+		{
+			m.addAttribute("result", "correct");
+			m.addAttribute("mid",rb.getDesgination());
+			System.out.println(rb.getDesgination());
+			return "choose";
+		}
+		
+		
+		
+	}
+	
+	
 	
 	
 

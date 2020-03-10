@@ -68,6 +68,25 @@ $btn.addEventListener("click", signIn);
           
           </c:if>
           </div> 
+          <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+           <div style="color:green;text-align:center;padding-right: 10ex; "> 
+          <c:if test="${help == 'success' }">
+      
+       		Thanks for reaching us.Your problem is <br/>
+       		reported to the	admin.
+         
+          
+          </c:if>
+          </div> 
+          
+           <div style="color:red;text-align:center;padding-right: 10ex; "> 
+          <c:if test="${result == 'correct' }">
+      
+       		Your UserID is ${mid} 
+         
+          
+          </c:if>
+          </div> 
           <br /><br />
           
       </div>

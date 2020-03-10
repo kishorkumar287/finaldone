@@ -23,5 +23,9 @@ public interface AdminDao extends JpaRepository<AdminBean, String>{
 	 @Modifying(clearAutomatically = true)
 	 @Query("UPDATE AdminBean a SET a.password = :password WHERE a.emailId = :emailId")
 	 int updatepassword(@Param("emailId") String emailId, @Param("password") String password);
+	 
+	 
+	 
+	 
 
 }
