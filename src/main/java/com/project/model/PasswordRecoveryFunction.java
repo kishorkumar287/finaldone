@@ -19,6 +19,10 @@ public class PasswordRecoveryFunction {
 	{
 		RecoveryBean rb;
 		
+		System.out.println("asd");
+		System.out.println(adao.findAll());
+		System.out.println("dsa");
+		
 		if(question.equals("q1"))
 		{
 			rb = dao.Validate(id,answer);

@@ -1,5 +1,3 @@
-
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -60,46 +58,78 @@
 		</div>
 
 		<div class="tile-body">
-			<f:form id="form" action="recoverymap" method="post"
-				modelAttribute="rb">
+			<form id="form" action="showuserid" method="post">
+				
+				<!--	
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input type="text" path="a1" autofocus="true" name="a1"
-						required="true" /> <span class="label">What is your Nick
-						name?</span>
-					<div class="underline"></div>
-				</label>
-				<p style="color: red;">
-					<f:errors path="a1"></f:errors>
-				</p>
-				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="a2" type="text" autofocus="true" name="a2"
+					<input  type="text" autofocus="true" name="id"
 						required="true" /> <span class="label">What is your
-						Favourite colour?</span>
+						Email Id?</span>
 					<div class="underline"></div>
 				</label>
-				<p style="color: red;">
-					<f:errors path="a2"></f:errors>
-				</p>
+				
+				
+			 <label class="form-input"> <i class="material-icons">person</i>
+				<br>&nbsp &nbsp &nbsp &nbsp
+					<select id="question" name="question">
+							    <option value="q1">What is your Nick name?</option>
+							    <option value="q2">What is your Favourite colour?</option>
+							    <option value="q3">Who is your Favourite Hero?</option>
+							  </select> <span class="label">Select Any one of the well known question</span>
+					<div class="underline"></div>
+				</label>
+				 -->
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="a3" type="text" autofocus="true" name="a3"
-						required="true" /> <span class="label">Who is your
-						Favourite Hero?</span>
+					<input  type="text" autofocus="true" name="answer1"
+						required="true" /> <span class="label">What is your Nick name?</span>
 					<div class="underline"></div>
 				</label>
-				<p style="color: red;">
-					<f:errors path="a3"></f:errors>
-				</p>
+				
+				<label class="form-input"> <i class="material-icons">person</i>
+					<input  type="text" autofocus="true" name="answer2"
+						required="true" /> <span class="label">What is your Favourite colour?</span>
+					<div class="underline"></div>
+				</label>
+				
+				<label class="form-input"> <i class="material-icons">person</i>
+					<input  type="text" autofocus="true" name="answer3"
+						required="true" /> <span class="label">Who is your Favourite Hero?</span>
+					<div class="underline"></div>
+				</label>
+				
+				<!-- 
+				
+				
+				<label class="form-input"> <i class="material-icons">person</i>
+					<input  type="text" autofocus="true" name="answer"
+						required="true" /> <span class="label">Enter your answer</span>
+					<div class="underline"></div>
+				</label> -->
+				<div style="text-align: center; color: red;">
+				<c:if test="${result == 'wrong' }">
+				ENTER THE CORRECT ANSWER FOR ALL THE SECURITY QUESTIONS.
+				</c:if>
+				</div>
 				<br />
 				<br />
+				
+				
+				
+				
 				<button role="button" type="submit"
 					class="btn btn-irenic float-left" tabindex="0">
-					<span>SignUp</span>
+					<span>Submit</span>
 				</button>
 				<input type="reset" value="clear" class="btn btn-irenic float-right"
 					tabindex="0">
 
+			
 
-			</f:form>
+			</form>
+			
+			
+			
+			
 			<br />
 			<br />
 

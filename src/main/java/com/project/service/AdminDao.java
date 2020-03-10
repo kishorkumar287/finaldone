@@ -1,5 +1,7 @@
 package com.project.service;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +20,9 @@ public interface AdminDao extends JpaRepository<AdminBean, String>{
 
 	@Query("select s from AdminBean s where s.emailId=:email")
 	public AdminBean findAdmin(String email);
+	
+	
+	public List<AdminBean> findAll();
 	
 	 @Transactional
 	 @Modifying(clearAutomatically = true)

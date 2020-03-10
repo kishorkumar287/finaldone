@@ -1,5 +1,3 @@
-
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -56,50 +54,46 @@
 		<div class="tile-header">
 			<h2
 				style="color: teal; opacity: .75; font-size: 2rem; display: flex; justify-content: center; align-items: center; height: 100%;">
-				Recovery Question</h2>
+				Update Password</h2>
 		</div>
 
 		<div class="tile-body">
-			<f:form id="form" action="recoverymap" method="post"
-				modelAttribute="rb">
+			<form id="form" action="passwordchanged">
+				
+				
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input type="text" path="a1" autofocus="true" name="a1"
-						required="true" /> <span class="label">What is your Nick
-						name?</span>
+					<input  type="password"  pattern=".{8,}"  autofocus="true" name="pass"
+						required="true" /> <span class="label">Enter your new password of minimum length 8</span>
 					<div class="underline"></div>
 				</label>
-				<p style="color: red;">
-					<f:errors path="a1"></f:errors>
-				</p>
+				
+				
+				
 				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="a2" type="text" autofocus="true" name="a2"
-						required="true" /> <span class="label">What is your
-						Favourite colour?</span>
+					<input  type="password" min="8" autofocus="true" name="repass"
+						required="true" /> <span class="label">Re-Enter your new password</span>
 					<div class="underline"></div>
 				</label>
-				<p style="color: red;">
-					<f:errors path="a2"></f:errors>
-				</p>
-				<label class="form-input"> <i class="material-icons">person</i>
-					<f:input path="a3" type="text" autofocus="true" name="a3"
-						required="true" /> <span class="label">Who is your
-						Favourite Hero?</span>
-					<div class="underline"></div>
-				</label>
-				<p style="color: red;">
-					<f:errors path="a3"></f:errors>
-				</p>
-				<br />
-				<br />
+				<div style="text-align: center; color: red;">
+				<c:if test="${result == 'wrong' }">
+				THERE IS A MISMATCH IN YOUR NEW PASSWORD SO PLEASE ENTER CORRECTLY		
+				</c:if>
+				</div>
+				
 				<button role="button" type="submit"
 					class="btn btn-irenic float-left" tabindex="0">
-					<span>SignUp</span>
+					<span>Submit</span>
 				</button>
 				<input type="reset" value="clear" class="btn btn-irenic float-right"
 					tabindex="0">
 
+			
 
-			</f:form>
+			</form>
+			
+			
+			
+			
 			<br />
 			<br />
 

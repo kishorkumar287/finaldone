@@ -1,6 +1,5 @@
 package com.project;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import org.springframework.boot.SpringApplication;
@@ -15,6 +14,9 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.project.model.PasswordRecoveryFunction;
+import com.project.model.pdf_function;
+
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -23,25 +25,14 @@ public class PharmapaymentApplication {
 
 	public static void main(String[] args) {
 		
-		 Document document = new Document();
-	      try
-	      {
-	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));
-	         document.open();
-	         document.add(new Paragraph("A Hello World PDF document."));
-	         document.close();
-	         writer.close();
-	      } catch (DocumentException e)
-	      {
-	         e.printStackTrace();
-	      } catch (FileNotFoundException e)
-	      {
-	         e.printStackTrace();
-	      }
 		
 		
+		SpringApplication.run(PharmapaymentApplication.class, args);
+		System.out.println("pdfwriter");
+		//pdf_function pdf=new pdf_function();
 		
-		//SpringApplication.run(PharmapaymentApplication.class, args);
+		//pdf.pdf();
+		
 		
 		
 

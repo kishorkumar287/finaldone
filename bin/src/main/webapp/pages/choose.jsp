@@ -50,16 +50,45 @@ $btn.addEventListener("click", signIn);
       
       <div class="tile-body">
      
-        <div class="container" style="width:120%;">
+        <div class="container"  style="width:120%;">
          
-          <h2 style="color:black; opacity: .75; font-size: 2rem; display: flex; height: 100%; text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose Role</h2>
+          <h2 style="color:black; opacity: .75; font-size: 2rem; display: flex; height: 100%; text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose Role</h2>
      
           <br /><br />
           
           <a class="btn btn-outline-dark btn-lg" style="width: 80%;" href="/log?role=ad" role="button">Admin</a>
           <br /><br /><br />
           <a class="btn btn-outline-dark btn-lg" style="width: 80%;" href="/log?role=us" role="button">&nbsp;User&nbsp;</a>
+          
           <br /><br />
+         <div style="color: red;"> 
+          <c:if test="${updatepass == 'yes' }">
+          
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PASSWORD UPDATED SUCCESSFULLY
+          
+          </c:if>
+          </div> 
+          <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+           <div style="color:green;text-align:center;padding-right: 10ex; "> 
+          <c:if test="${help == 'success' }">
+      
+       		Thanks for reaching us.Your problem is <br/>
+       		reported to the	admin.
+         
+          
+          </c:if>
+          </div> 
+          
+           <div style="color:red;text-align:center;padding-right: 10ex; "> 
+          <c:if test="${result == 'correct' }">
+      
+       		Your UserID is ${mid} 
+         
+          
+          </c:if>
+          </div> 
+          <br /><br />
+          
       </div>
 
     

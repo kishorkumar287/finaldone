@@ -1,5 +1,4 @@
 
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -109,8 +108,11 @@ if(add==1)
       <p style="color:red;"><%=msg%> </p>
       <br/><br/>
       <p style="color:green;"><%=msgs%></p>
+      <p style="text-align: center;font-size: large;color:black;"><a href="/help">help</a></p>
       <p style="text-align: center;font-size: large;color:black;"><a href="/forgotpassword">forgot Password?</a></p>
-    
+      <p style="text-align: center;font-size: large;color:black;"><a href="/forgotusername">forgot Username?</a></p>
+      <p style="text-align: center;font-size: large;color:black;"><a href="/pdf">pdf</a></p>
+      
       </div>
     </div>
       

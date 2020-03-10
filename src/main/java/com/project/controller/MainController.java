@@ -21,7 +21,7 @@ import com.project.model.HelpBean;
 import com.project.model.LoginBean;
 import com.project.model.PasswordRecoveryFunction;
 import com.project.model.RecoveryBean;
-
+import com.project.model.pdf_function;
 import com.project.service.AdminDao;
 import com.project.service.AdminFunction;
 import com.project.service.HelpDao;
@@ -43,6 +43,9 @@ public class MainController {
 	
 	@Autowired
 	HelpDao helpDao;
+	
+	@Autowired
+	pdf_function pdf;
 	
 	
 	@RequestMapping("/")
@@ -323,7 +326,17 @@ public class MainController {
 		
 	}
 	
-	
+	@RequestMapping("/pdf")
+	public String pdf()
+	{
+		System.out.println("asddfg");
+		
+		
+		
+		pdf.pdf();
+		
+		return "choose";
+	}
 	
 	
 

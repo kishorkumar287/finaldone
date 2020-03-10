@@ -87,21 +87,31 @@
 						required="true" /> <span class="label">Enter your answer</span>
 					<div class="underline"></div>
 				</label>
-				
-				
-				
+				<div style="text-align: center; color: red;">
+				<c:if test="${result == 'wrong' }">
+				ENTER CORRECT USERNAME AND PASSWORD
+				</c:if>
+				</div>
 				<br />
 				<br />
+				
+				
+				
+				
 				<button role="button" type="submit"
 					class="btn btn-irenic float-left" tabindex="0">
-					<span>SignUp</span>
+					<span>Submit</span>
 				</button>
 				<input type="reset" value="clear" class="btn btn-irenic float-right"
 					tabindex="0">
 
+			
 
-
-			<form>
+			</form>
+			
+			
+			
+			
 			<br />
 			<br />
 
